@@ -14,7 +14,7 @@ if __name__ == '__main__':
         clash_content = yaml.load(clash_file, Loader=yaml.FullLoader)
     os.mkdir(path='my-files')
     with open(file='my-files/MyClash.yml', mode='w', encoding='utf-8') as result_clash_file:
-        yaml.dump(data={'port': '7890', 'socks-port': '7891', 'mode': 'global', 'proxies': clash_content['proxies']},
+        yaml.dump(data={'port': 7890, 'socks-port': 7891, 'mode': 'global', 'proxies': clash_content['proxies']},
                   stream=result_clash_file,
                   allow_unicode=True,
                   sort_keys=False)
