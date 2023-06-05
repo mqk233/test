@@ -1,0 +1,42 @@
+name: Build release package
+on:
+  push:
+  schedule:
+    - cron: '0 2 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set current date as env variable
+        run: echo "current_date=$(date "+%Y%m%d")" >> "$GITHUB_ENV"
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install wget pyyaml
+      - name: Create Release
+        id: create-release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ env.current_date }}
+          release_name: ${{ env.current_date }}
+          draft: false
+          prerelease: false
+      - run: python ./main.py
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create-release.outputs.upload_url }}
+          asset_path: ./my-files/MyClash.yml
+          asset_name: MyClash.yml
+          asset_content_type: application/zip
