@@ -2,7 +2,7 @@ name: Build release package
 on:
   push:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '01 00 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
