@@ -12,8 +12,8 @@ if __name__ == '__main__':
     zip_files.close()
     with open(file='ssr-master/Clash.yml', mode='r', encoding='utf-8') as clash_file:
         clash_content = yaml.load(clash_file, Loader=yaml.FullLoader)
-    os.mkdir(path='my-files')
-    with open(file='my-files/MyClash.yml', mode='w', encoding='utf-8') as result_clash_file:
+    os.mkdir(path='myfiles')
+    with open(file='myfiles/MyClash.yml', mode='w', encoding='utf-8') as result_clash_file:
         yaml.dump(data={'mixed-port': 7890, 'mode': 'global', 'proxies': clash_content['proxies']},
                   stream=result_clash_file,
                   allow_unicode=True,
