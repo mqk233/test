@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install wget pyyaml
+          pip install wget pyyaml=6.0
       - name: Fetch clash config
         run: python ./main.py
       - name: Create Release
