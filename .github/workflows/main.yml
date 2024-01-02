@@ -1,5 +1,6 @@
 name: Build release package
 on:
+  push
   schedule:
     - cron: '01 00 * * *'
 jobs:
