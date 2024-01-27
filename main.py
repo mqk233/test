@@ -10,7 +10,7 @@ if __name__ == '__main__':
     for zip_file in zip_files.namelist():
         zip_files.extract(zip_file)
     zip_files.close()
-    with open('ssr-master/Clash.yml', 'r', encoding='utf-8') as clash_file:
+    with open('./ssr-master/Clash.yml', 'r', encoding='utf-8') as clash_file:
         clash_content = yaml.load(clash_file, Loader=yaml.FullLoader)
         proxies = clash_content['proxies']
         remove_index = -1
