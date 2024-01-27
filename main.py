@@ -7,7 +7,11 @@ import yaml
 if __name__ == '__main__':
     wget.download(url="https://github.com/ssrsub/ssr/raw/master/Clash.yml", out='Clash.yml')
     with open(file='Clash.yml', mode='r', encoding='utf-8') as clash_file:
-        clash_content = yaml.safe_load(clash_file)
+        lines_to_keep = []
+        for line in clash_file:
+            if string_to_remove not in line:
+                lines_to_keep.append(line)
+        clash_content = yaml.safe_load(''.join(lines_to_keep))
         proxies = clash_content['proxies']
         remove_index = -1
         for i in range(len(proxies)):
