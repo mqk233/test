@@ -9,8 +9,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Set current date as env variable
-        run: echo "current_date=$(date "+%Y%m%d")" >> "$GITHUB_ENV"
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Set up Python
