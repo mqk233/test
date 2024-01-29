@@ -13,7 +13,7 @@ if __name__ == '__main__':
                 lines_to_keep.append(line)
         clash_content = yaml.safe_load(''.join(lines_to_keep))
     os.mkdir(path='myfiles')
-    with open(file='myfiles/MyClash.yml', mode='w', encoding='utf-8') as result_clash_file:
+    with open(file='MyClash.yml', mode='w', encoding='utf-8') as result_clash_file:
         yaml.dump(data={'mixed-port': 7890, 'mode': 'global', 'proxies': clash_content['proxies']},
                   stream=result_clash_file,
                   allow_unicode=True,
