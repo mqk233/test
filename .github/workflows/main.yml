@@ -17,8 +17,6 @@ jobs:
           python-version: 3.12.0
       - name: Fetch clash config
         run: |
-          repo_version="$(curl -sL https://api.github.com/repos/${{ github.repository }}/releases/latest | jq -r '.tag_name')"
-          echo $repo_version
           python -m pip install --upgrade pip
           pip install wget pyyaml
           python ./main.py
