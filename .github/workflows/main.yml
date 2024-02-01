@@ -17,9 +17,6 @@ jobs:
           python-version: 3.12.0
       - name: Fetch clash config
         run: |
-          curl -sL https://github.com/badafans/warp-reg/releases/latest/download/main-linux-amd64 -o warp-reg
-          sudo chmod +x warp-reg
-          ./warp-reg
           python -m pip install --upgrade pip
           pip install wget pyyaml
           python ./main.py
