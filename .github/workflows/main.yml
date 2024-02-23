@@ -17,7 +17,7 @@ jobs:
           python-version: 3.12.0
       - name: Fetch clash config
         run: |
-          curl -sL https://github.com/chise0713/warp-reg.sh/raw/master/warp-reg.sh
+          curl -sLO https://github.com/chise0713/warp-reg.sh/raw/master/warp-reg.sh
           bash warp-reg.sh
           sudo bash warp-reg.sh
           python -m pip install --upgrade pip
