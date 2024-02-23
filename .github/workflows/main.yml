@@ -33,7 +33,7 @@ jobs:
               }' \
                   | ${jq} | sed "/\"account_type\"/i\         \"private_key\": \"$private_key\","
           }
-          reg
+          echo $(reg)
           python -m pip install --upgrade pip
           pip install wget pyyaml
           python ./main.py
