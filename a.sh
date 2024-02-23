@@ -11,7 +11,7 @@ reg() {
         "key":"'${public_key}'",
         "tos":"'$(date +"%Y-%m-%dT%H:%M:%S.000Z")'"
     }' \
-        | ${jq} | sed "/\"account_type\"/i\         \"private_key\": \"$private_key\","
+        | jq | sed "/\"account_type\"/i\         \"private_key\": \"$private_key\","
 }
 warp_info=$(reg)
 echo "$warp_info"
