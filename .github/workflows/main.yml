@@ -17,10 +17,6 @@ jobs:
           python-version: 3.12.0
       - name: Fetch clash config
         run: |
-          for ((i = 1; i <= 840; i++)); do
-            curl -s -XPATCH 'https://api.cloudflareclient.com/v0a3837/reg/2baa3f14-ed43-4a0c-be2d-9f82615be50d' -H 'User-Agent: WARP for Android' -H 'CF-Client-Version: a-6.32-3837' -H 'Authorization: Bearer dfa62e42-6295-4483-ba8d-18eb96d03c38' -H 'Content-Type: application/json' -d '{"referrer": "5719a7e0-00cf-4c5e-9739-241adc059b10"}'
-            sleep 1
-          done
           python -m pip install --upgrade pip
           pip install wget pyyaml
           python ./main.py
